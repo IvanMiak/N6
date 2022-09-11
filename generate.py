@@ -1,7 +1,7 @@
 import random
 inputFileName = 'C:\Temp\model.txt'
 text = []
-with open(inputFileName, 'r') as inputFile, open(outputFileName, 'w') as outputFile:
+with open(inputFileName, 'r') as inputFile:
     c = inputFile.readline()
     while c:
         text.append(c)
@@ -31,12 +31,48 @@ for i in range(k - n):
 
 prevWords = []
 strPrevWords = ''
-for i in range(n):
-    t = input()
-    prevWords.append(t)
-    strPrevWords += t + ' '
+prefix = input()
+word = ""
+f = 0
+for i in range(len(prefix)):
+    if 1072 <= ord(prefix[i]) <= 1103 or 97 <= ord(prefix[i]) <= 122:
+        word += prefix[i]
+        f = 1
+    elif 1040 <= ord(prefix[i]) <= 1071 or 65 <= ord(prefix[i]) <= 90:
+        word += chr(ord(prefix[i]) + 32)
+        f = 1
+    elif f == 1:
+        prevWords.append(word)
+        word = ""
+        f = 0
+
+if f == 1:
+    prevWords.append(word)
+ans = ""
+k = len(prevWords)
+if k >= n:
+    for i in range(k):
+        ans += prevWords[i] + " "
+    prevWords = prevWords[k-n:]
+    for i in range(n):
+        strPrevWords += prevWords[i] + ' '
+else:
+    strPrevWords = key.pop()
+    key.add(strPrevWords)
+    f = 0
+    word = ""
+    for i in range(len(strPrevWords)):
+        if 1072 <= ord(strPrevWords[i]) <= 1103 or 97 <= ord(strPrevWords[i]) <= 122:
+            word += strPrevWords[i]
+            f = 1
+        elif f == 1:
+            prevWords.append(word)
+            word = ""
+            f = 0
+    ans += strPrevWords
+
 length = int(input())
-ans = strPrevWords
+
 for i in range(length):
     if strPrevWords in key:
         len1 = len(d[strPrevWords])
