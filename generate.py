@@ -1,5 +1,5 @@
 import random
-inputFileName = 'C:\Temp\model.txt'
+inputFileName = 'model.txt'
 text = []
 with open(inputFileName, 'r') as inputFile:
     c = inputFile.readline()
@@ -10,7 +10,7 @@ n = int(input())
 k = len(text)
 d = {}
 textN = []
-for i in range(k - n+1):
+for i in range(k - n + 1):
     wordN = ''
     for j in range(i, i + n):
         wordN += text[j] + " "
