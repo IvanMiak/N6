@@ -6,7 +6,7 @@ with open(inputFileName, 'r') as inputFile:
     while c:
         text.append(c)
         c = inputFile.readline()
-n = int(input())
+n = 2
 k = len(text)
 d = {}
 textN = []
