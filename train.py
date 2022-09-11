@@ -1,3 +1,5 @@
+inputFileName = "input.txt"
+outputFileName = "model.txt"
 with open(inputFileName, 'r') as inputFile, open(outputFileName, 'w') as outputFile:
     c = inputFile.readline()
     while c:
